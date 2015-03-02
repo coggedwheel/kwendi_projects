@@ -30,7 +30,8 @@ public class CQuestMachineCore{
 		
 
 		qstNew.setCaption("Qustion #1");
-		qstNew.setViewType(enmViewType.VT_VERTICAL);
+		qstNew.setID("sA1.1");
+		
 		
 		stgNew.setID("A1");
 		stgNew.AddItem(qstNew);
@@ -59,7 +60,7 @@ public class CQuestMachineCore{
 
 
 		qstNew.setCaption("Qustion #2");
-		qstNew.setViewType(enmViewType.VT_COMBO);
+		//qstNew.setViewType(enmViewType.VT_COMBO);
 		
 		stgNew.setID("A2");
 		stgNew.AddItem(qstNew);		

@@ -4,42 +4,23 @@ import java.util.List;
 
 
 public class CQuestion {
-
 	
 	private List<CQuestAnswer> lstItems;
 	private String sCaption;
-	private enmViewType vtViewType;
+	
 	 
 	//String question ID. Questionnaire navigation use it, MUST be unique!!!
 	private String sID;   
 	
 
 	public CQuestion(){
-		setItemsList(new ArrayList<CQuestAnswer>());	
-	}
-	
-	// нужен ли этот метод???
-	public List<CQuestAnswer> getItemsList() {
-		return lstItems;
-	}
-
-	// записываем сразу весь список ответов
-	public void setItemsList(List<CQuestAnswer> lstItems) {
-		
-		this.lstItems = lstItems;
-
-/*
-		this.lstItems.clear();
-		
-		for (int i=0; i<lstItems.size()-1; i++){
-			this.lstItems.add(lstItems.get(i));
-		}
-*/
+		lstItems= new ArrayList<CQuestAnswer>();	
 	}
 	
 	// добавляем один элемент в список 
 	public boolean AddItem(CQuestAnswer qaNew){
-		return lstItems.add(qaNew);
+		CQuestAnswer qaTmp = new  CQuestAnswer(qaNew);
+		return lstItems.add(qaTmp);
 	}
 	
 	public String getCaption() {
@@ -58,11 +39,5 @@ public class CQuestion {
 		this.sID = sID;
 	}
 	
-	public void setViewType(enmViewType vtViewType){
-		this.vtViewType = vtViewType;
-	}
-	
-	public enmViewType getViewType(){
-		return this.vtViewType;
-	}
+
 }
