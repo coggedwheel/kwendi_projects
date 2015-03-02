@@ -15,7 +15,6 @@ public class CQuestMachineCore{
 	public static void InitQuestionnaire(CQuestionnaire qnrNew){
 		
 		CQuestAnswer qa  = new CQuestAnswer();
-		
 		CQuestion qstNew = new CQuestion();
 		CQuestStage stgNew = new CQuestStage();
 		
@@ -34,7 +33,7 @@ public class CQuestMachineCore{
 		
 		
 		stgNew.setID("A1");
-		stgNew.AddItem(qstNew);
+		stgNew.AddQuestion(qstNew);
 		stgNew.setCaption("Stage #1");
 		
 		qnrNew.AddStage(stgNew);
@@ -60,10 +59,11 @@ public class CQuestMachineCore{
 
 
 		qstNew.setCaption("Qustion #2");
+		qstNew.setID("sA2.1");
 		//qstNew.setViewType(enmViewType.VT_COMBO);
 		
 		stgNew.setID("A2");
-		stgNew.AddItem(qstNew);		
+		stgNew.AddQuestion(qstNew);		
 		stgNew.setCaption("Stage #2");
 		
 		qnrNew.AddStage(stgNew);		
@@ -71,9 +71,9 @@ public class CQuestMachineCore{
 	
 	public static void ShowQuestionnaire(CQuestionnaire qnrNew){
 		
-		System.out.println(qnrNew.GetStageByID("A1"));
+		System.out.println(qnrNew.GetStageByID("A1").getCaption());
 		System.out.println("\n");
-		System.out.println(qnrNew.GetStageByID("A2"));
+		System.out.println(qnrNew.GetStageByID("A2").getCaption());
 		
 	}
 	

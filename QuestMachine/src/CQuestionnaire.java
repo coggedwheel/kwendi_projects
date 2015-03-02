@@ -6,61 +6,49 @@ import java.util.ListIterator;
 public class CQuestionnaire {
 
 	// fields
-	private String sCaption;
 	private List<CQuestStage> lstStages;
 	
 	public CQuestionnaire(){
-		setStagesList (new ArrayList<CQuestStage>());
-	}
-	
-	//methods
-	public void setStagesList(List<CQuestStage> lstStages){
-		this.lstStages = lstStages;
-	}
-	
-	public List<CQuestStage> getStagesList(){
-		return this.lstStages;
+		lstStages = new ArrayList<CQuestStage>();
 	}
 
+	// Copy constructor
+	public CQuestionnaire(CQuestionnaire qnrSrc){
+		
+		lstStages = new ArrayList<CQuestStage>();
+		
+		lstStages.addAll(qnrSrc.lstStages);
+	}
+	
+	
+	//methods
+
 	public boolean AddStage(CQuestStage qstNew){
-		return lstStages.add(qstNew);
-	}
-	
-	public String getCaption() {
-		return sCaption;
-	}
-	
-	public void setCaption(String sCaption) {
-		this.sCaption = sCaption;
+		
+		CQuestStage qstTmp = new CQuestStage(qstNew);
+		return lstStages.add(qstTmp);
+		
 	}
 
 	
 	// находит stage с заданным ID и возвращает его
 	public CQuestStage GetStageByID(String sID){
 		
-		ListIterator<CQuestStage> it = lstStages.listIterator(); 
+		CQuestStage stReturn = null;
 		
+		ListIterator<CQuestStage> it = lstStages.listIterator(); 
 		boolean bFind = false;
 		
 		while(it.hasNext() && bFind==false){
 			
-			CQuestStage st = it.next();
-			if (st.getCaption()==sID){
+			stReturn = it.next();
+			
+			if (stReturn.getID()==sID){
 				bFind = true;				
 			}
-			
 		}
 		
-		if (bFind){
-		
-			return (CQuestStage) it.previous();
-			
-		}
-		else {
-			
-			return null;
-		}
-
+		return stReturn;
 		
 	}
 		

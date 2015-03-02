@@ -5,17 +5,26 @@ import java.util.List;
 
 public class CQuestion {
 	
-	private List<CQuestAnswer> lstItems;
-	private String sCaption;
-	
-	 
-	//String question ID. Questionnaire navigation use it, MUST be unique!!!
-	private String sID;   
+	private List<CQuestAnswer> lstItems; 	//List of alternatives
+	private String sCaption; 				//Text of the question 
+	private String sID; 					//String question ID. Questionnaire navigation use it, MUST be unique!!!   
 	
 
 	public CQuestion(){
 		lstItems= new ArrayList<CQuestAnswer>();	
 	}
+
+	// Copy constructor
+	public CQuestion(CQuestion qstSrc){
+
+		lstItems= new ArrayList<CQuestAnswer>();
+		
+		sCaption = qstSrc.sCaption;
+		sID = qstSrc.sID;
+		lstItems.addAll(qstSrc.lstItems);	
+		
+	}
+
 	
 	// добавляем один элемент в список 
 	public boolean AddItem(CQuestAnswer qaNew){

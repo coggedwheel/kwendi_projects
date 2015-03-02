@@ -15,10 +15,25 @@ public class CQuestStage {
 	public CQuestStage(){
 		lstQuestions = new ArrayList<CQuestion>();
 	}
-	
+
+	// Copy constructor
+	public CQuestStage(CQuestStage stgSrc){
+
+		lstQuestions = new ArrayList<CQuestion>();
+		
+		sCaption = stgSrc.sCaption;
+		sID = stgSrc.sID;
+		vtViewType = stgSrc.vtViewType;
+		lstQuestions.addAll(stgSrc.lstQuestions);	
+		
+	}
+
 	// добавляем один элемент в список 
 	public boolean AddQuestion(CQuestion qstNew){
-		return lstQuestions.add(qstNew);
+		
+		CQuestion qstTmp = new CQuestion(qstNew);
+		return lstQuestions.add(qstTmp);
+		
 	}
 
 	public String getCaption() {
