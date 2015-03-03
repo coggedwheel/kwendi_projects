@@ -12,8 +12,8 @@ public class CQuestion {
 
 	public CQuestion(){
 		lstItems= new ArrayList<CQuestAnswer>();	
-	} 
-	// p ip
+	}
+
 	// Copy constructor
 	public CQuestion(CQuestion qstSrc){
 
