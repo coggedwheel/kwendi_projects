@@ -23,10 +23,10 @@ public class CQuestionnaire {
 	
 	//methods
 
-	public boolean AddStage(CQuestStage qstNew){
+	public boolean AddStage(CQuestStage stgNew){
 		
-		CQuestStage qstTmp = new CQuestStage(qstNew);
-		return lstStages.add(qstTmp);
+		CQuestStage stgTmp = new CQuestStage(stgNew);
+		return lstStages.add(stgTmp);
 		
 	}
 
